@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2026 at 05:49 PM
+-- Generation Time: Nov 13, 2026 at 01:33 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -73,7 +73,14 @@ CREATE TABLE `orders` (
 INSERT INTO `orders` (`id`, `no_invoice`, `user_id`, `nama_pelanggan`, `nomor_meja`, `total_tagihan`, `tipe_pembayaran`, `status_order`, `tanggal_transaksi`, `subtotal`, `diskon`, `service_charge`, `pajak`, `created_at`) VALUES
 (1, 'INV-20261109203242', 2, 'Umum', '-', 33000.00, 'split', 'lunas', '2026-11-09 20:32:42', 0.00, 0.00, 0.00, 0.00, '2026-11-09 16:48:28'),
 (2, 'INV-20261109203834', 2, 'Mahiru', '11', 46000.00, 'split', 'lunas', '2026-11-09 20:38:34', 0.00, 0.00, 0.00, 0.00, '2026-11-09 16:48:28'),
-(3, 'INV-20261109205358', 2, 'dihan', '12', 43000.00, 'split', 'lunas', '2026-11-09 20:53:58', 0.00, 0.00, 0.00, 0.00, '2026-11-09 16:48:28');
+(3, 'INV-20261109205358', 2, 'dihan', '12', 43000.00, 'split', 'lunas', '2026-11-09 20:53:58', 0.00, 0.00, 0.00, 0.00, '2026-11-09 16:48:28'),
+(4, 'INV-20261109235355-961', 1, 'burhan', '3', 33000.00, 'split', 'lunas', '2026-11-09 23:53:55', 33000.00, 0.00, 0.00, 0.00, '2026-11-09 16:53:55'),
+(5, 'INV-20261111122450-134', 1, 'galaxy crasher', '9', 66000.00, 'split', 'lunas', '2026-11-11 12:24:50', 66000.00, 0.00, 0.00, 0.00, '2026-11-11 05:24:50'),
+(6, 'INV-20261111122541-363', 1, 'reja', '4', 37000.00, 'split', 'lunas', '2026-11-11 12:25:41', 37000.00, 0.00, 0.00, 0.00, '2026-11-11 05:25:41'),
+(7, 'INV-20261112113216-351', 1, 'galaxy crasher', '8', 48000.00, 'split', 'lunas', '2026-11-12 11:32:16', 48000.00, 0.00, 0.00, 0.00, '2026-11-12 04:32:16'),
+(8, 'INV-20261112134533-732', 2, 'Ezzra', '12', 50000.00, 'split', 'lunas', '2026-11-12 13:45:33', 50000.00, 0.00, 0.00, 0.00, '2026-11-12 06:45:33'),
+(9, 'INV-20261113125126-764', 2, 'dihanun', '4', 46000.00, 'split', 'lunas', '2026-11-13 12:51:26', 46000.00, 0.00, 0.00, 0.00, '2026-11-13 05:51:26'),
+(10, 'INV-20261113162206-263', 2, 'nabila', '2', 39000.00, 'split', 'lunas', '2026-11-13 16:22:06', 39000.00, 0.00, 0.00, 0.00, '2026-11-13 09:22:06');
 
 -- --------------------------------------------------------
 
@@ -101,7 +108,21 @@ INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `qty`, `harga_satuan`
 (3, 2, 3, 1, 24000.00, 24000.00, 'lunas'),
 (4, 2, 2, 1, 22000.00, 22000.00, 'lunas'),
 (5, 3, 4, 1, 28000.00, 28000.00, 'lunas'),
-(6, 3, 5, 1, 15000.00, 15000.00, 'lunas');
+(6, 3, 5, 1, 15000.00, 15000.00, 'lunas'),
+(7, 4, 5, 1, 15000.00, 15000.00, 'lunas'),
+(8, 4, 1, 1, 18000.00, 18000.00, 'lunas'),
+(9, 5, 6, 2, 24000.00, 48000.00, 'lunas'),
+(10, 5, 1, 1, 18000.00, 18000.00, 'lunas'),
+(11, 6, 5, 1, 15000.00, 15000.00, 'lunas'),
+(12, 6, 2, 1, 22000.00, 22000.00, 'lunas'),
+(13, 7, 6, 1, 24000.00, 24000.00, 'lunas'),
+(14, 7, 3, 1, 24000.00, 24000.00, 'lunas'),
+(15, 8, 2, 1, 22000.00, 22000.00, 'lunas'),
+(16, 8, 4, 1, 28000.00, 28000.00, 'lunas'),
+(17, 9, 2, 1, 22000.00, 22000.00, 'lunas'),
+(18, 9, 3, 1, 24000.00, 24000.00, 'lunas'),
+(19, 10, 3, 1, 24000.00, 24000.00, 'lunas'),
+(20, 10, 5, 1, 15000.00, 15000.00, 'lunas');
 
 -- --------------------------------------------------------
 
@@ -132,7 +153,18 @@ INSERT INTO `payments` (`id`, `order_id`, `urutan_split`, `metode_bayar`, `nomin
 (4, 2, 2, 'tunai', 22000.00, 22000.00, 0.00, '2026-11-09 20:53:34', '2026-11-09 16:46:11'),
 (5, 3, 1, 'tunai', 12000.00, 12000.00, 0.00, '2026-11-09 20:54:51', '2026-11-09 16:46:11'),
 (6, 3, 2, 'tunai', 28000.00, 28000.00, 0.00, '2026-11-09 20:55:10', '2026-11-09 16:46:11'),
-(7, 3, 3, 'tunai', 3000.00, 3000.00, 0.00, '2026-11-09 20:55:23', '2026-11-09 16:46:11');
+(7, 3, 3, 'tunai', 3000.00, 3000.00, 0.00, '2026-11-09 20:55:23', '2026-11-09 16:46:11'),
+(8, 4, 1, 'qris', 13000.00, 13000.00, 0.00, '2026-11-09 23:54:35', '2026-11-09 16:54:35'),
+(9, 4, 2, 'qris', 20000.00, 20000.00, 0.00, '2026-11-09 23:54:44', '2026-11-09 16:54:44'),
+(10, 5, 1, 'tunai', 50000.00, 50000.00, 0.00, '2026-11-11 12:26:08', '2026-11-11 05:26:08'),
+(11, 6, 1, 'tunai', 37000.00, 37000.00, 0.00, '2026-11-11 12:26:53', '2026-11-11 05:26:53'),
+(12, 5, 2, 'tunai', 16000.00, 16000.00, 0.00, '2026-11-11 12:27:00', '2026-11-11 05:27:00'),
+(13, 7, 1, 'tunai', 48000.00, 48000.00, 0.00, '2026-11-12 11:32:52', '2026-11-12 04:32:52'),
+(14, 8, 1, 'tunai', 30000.00, 30000.00, 0.00, '2026-11-12 13:46:04', '2026-11-12 06:46:04'),
+(15, 8, 2, 'tunai', 20000.00, 20000.00, 0.00, '2026-11-12 13:46:19', '2026-11-12 06:46:19'),
+(16, 9, 1, 'debit', 30000.00, 30000.00, 0.00, '2026-11-13 12:51:53', '2026-11-13 05:51:53'),
+(17, 9, 2, 'tunai', 16000.00, 16000.00, 0.00, '2026-11-13 12:52:13', '2026-11-13 05:52:13'),
+(18, 10, 1, 'tunai', 39000.00, 50000.00, 11000.00, '2026-11-13 16:22:46', '2026-11-13 09:22:46');
 
 -- --------------------------------------------------------
 
@@ -145,6 +177,8 @@ CREATE TABLE `products` (
   `category_id` int(11) NOT NULL,
   `kode_produk` varchar(20) NOT NULL,
   `nama_produk` varchar(100) NOT NULL,
+  `gambar` varchar(255) DEFAULT NULL,
+  `deskripsi` varchar(160) DEFAULT NULL,
   `harga` decimal(12,2) NOT NULL,
   `stok` int(11) NOT NULL DEFAULT 0,
   `status` enum('tersedia','habis') DEFAULT 'tersedia'
@@ -154,12 +188,13 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `category_id`, `kode_produk`, `nama_produk`, `harga`, `stok`, `status`) VALUES
-(1, 1, 'KOP-001', 'Iced Americano', 18000.00, 49, 'tersedia'),
-(2, 1, 'KOP-002', 'Kopi Susu Gula Aren', 22000.00, 44, 'tersedia'),
-(3, 2, 'NON-001', 'Matcha Latte Ice', 24000.00, 29, 'tersedia'),
-(4, 3, 'MKN-001', 'Nasi Goreng Spesial', 28000.00, 24, 'tersedia'),
-(5, 4, 'SNK-001', 'French Fries Platter', 15000.00, 38, 'tersedia');
+INSERT INTO `products` (`id`, `category_id`, `kode_produk`, `nama_produk`, `gambar`, `deskripsi`, `harga`, `stok`, `status`) VALUES
+(1, 1, 'KOP-001', 'Iced Americano', 'iced_americano.png', NULL, 18000.00, 47, 'tersedia'),
+(2, 1, 'KOP-002', 'Kopi Susu Gula Aren', 'kopi_susu_aren.png', NULL, 22000.00, 41, 'tersedia'),
+(3, 2, 'NON-001', 'Matcha Latte Ice', 'mactha.png', NULL, 24000.00, 26, 'tersedia'),
+(4, 3, 'MKN-001', 'Nasi Goreng Spesial', 'nasgor.png', NULL, 28000.00, 23, 'tersedia'),
+(5, 4, 'SNK-001', 'French Fries Platter', 'french_fries.png', NULL, 15000.00, 35, 'tersedia'),
+(6, 3, 'MKN-002', 'Asteroid Destroyer', 'asteroid.png', NULL, 24000.00, 9, 'tersedia');
 
 -- --------------------------------------------------------
 
@@ -173,16 +208,18 @@ CREATE TABLE `users` (
   `username` varchar(50) NOT NULL,
   `password` varchar(255) DEFAULT NULL,
   `role` enum('admin','kasir') NOT NULL DEFAULT 'kasir',
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `last_nama_update` datetime DEFAULT NULL,
+  `last_username_update` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `nama_lengkap`, `username`, `password`, `role`, `created_at`) VALUES
-(1, 'Administrator Utama', 'admin', '$2y$10$D1dpF/9Pr4cYKjW.mW84w.UwwvW3TwvgDYh1qv21mSlhBlAuGA7IG', 'admin', '2026-11-02 12:00:02'),
-(2, 'Kasir Shift Pagi', 'kasir1', '$2y$10$2vlG8YSrkOCbctcFyr0sEu/VmGJDTY2D5S//mWhuVBeQXDonF1gK2', 'kasir', '2026-11-02 12:00:02');
+INSERT INTO `users` (`id`, `nama_lengkap`, `username`, `password`, `role`, `created_at`, `last_nama_update`, `last_username_update`) VALUES
+(1, 'Administrator Utama', 'admin', '$2y$10$D1dpF/9Pr4cYKjW.mW84w.UwwvW3TwvgDYh1qv21mSlhBlAuGA7IG', 'admin', '2026-11-02 12:00:02', NULL, NULL),
+(2, 'Kasir Shift Siang', 'kasir2', '$2y$10$dkffgCB/i8vut7Q8CJy3Yexf1u85r8pbja3Dv7ecRQ1WARqQdWgBa', 'kasir', '2026-11-02 12:00:02', '2026-11-13 19:07:26', '2026-11-13 19:07:26');
 
 --
 -- Indexes for dumped tables
@@ -247,25 +284,25 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
